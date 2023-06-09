@@ -1,0 +1,1049 @@
+body,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #333;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+input {
+  border: 0;
+  outline: none;
+}
+button {
+  background-color: #fff;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #333;
+  cursor: pointer;
+}
+.font-t {
+  font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino,
+    URW Palladio L, Nimbus Roman No9 L, serif;
+}
+
+/* 풀페이지 코드 */
+#fullpage > .section {
+  display: block;
+  /* background-attachment: fixed !important; */
+}
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  background: #cecece;
+}
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span,
+#fp-nav ul li:hover a.active span,
+.fp-slidesNav ul li:hover a.active span {
+  height: 10px;
+  width: 10px;
+  margin: -6px 0 0 -6px;
+  border-radius: 100%;
+  background-color: #81d8d0;
+}
+#fp-nav ul li .fp-tooltip {
+  color: #bcbcbc;
+  font-size: 13px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+}
+
+/* 스크롤 유도 코드 */
+.arrow {
+  position: absolute;
+  top: 92%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+.arrow span {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border-bottom: 2px solid #ececec;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: animate 2s infinite;
+}
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}
+
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* 사이드바 */
+aside {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  z-index: 1;
+  transition: transform;
+  transform: translateY(-50%);
+}
+.side-menu {
+  padding: 3px 0;
+  border-radius: 5px;
+  width: 50px;
+  box-sizing: border-box;
+  transition: transform;
+  border: 0.5px solid #bdbdbd;
+}
+.side-menu .label {
+  font-size: 8px;
+  color: #a4a4a4;
+}
+.side-menu a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  font-size: 10px;
+  padding: 10px 10px;
+}
+.side-menu i {
+  display: block;
+  margin: 0 auto 4px;
+  width: 20px;
+  height: 20px;
+  background: 50% 50% no-repeat;
+  color: #bdbdbd;
+}
+.side-menu .nav-icon {
+  width: 16px;
+  height: 16px;
+  margin: 0 auto 4px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.side-menu .bottom-line {
+  margin: 0 15px;
+  border-bottom: 1px solid #bdbdbd;
+}
+.side-menu .top {
+  background-image: url(//www.paris.co.kr/wp-content/themes/paris/assets/css/../img/icons/chevron-up.svg);
+  filter: opacity(0.8) drop-shadow(0 0 0 black);
+}
+.side-menu .like {
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px auto 4px;
+  background-image: url(https://media.tiffany.com/is/content/tiffanydm/Wishlist?$tile$&);
+  filter: opacity(0.2) drop-shadow(0 0 0 black);
+}
+.side-menu .date {
+  background-image: url(https://media.tiffany.com/is/content/tiffanydm/Appointment?$tile$&);
+  filter: opacity(0.2) drop-shadow(0 0 0 black);
+}
+.side-menu .store {
+  background-image: url(https://media.tiffany.com/is/content/tiffanydm/StoreLocator?$tile$&);
+  filter: opacity(0.2) drop-shadow(0 0 0 black);
+}
+
+/*메뉴 박스*/
+.category-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  z-index: 5;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+.category-box.active {
+  opacity: 1;
+  visibility: visible;
+}
+.category-box .category-box-content {
+  width: 400px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+.category-box .close-btn-box {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0 20px;
+  padding-top: 20px;
+}
+.category-box .menu-close-btn {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+}
+.category-box .menu-close-btn::before,
+.category-box .menu-close-btn::after {
+  content: "";
+  background-color: #212121;
+  width: 90%;
+  height: 3%;
+  position: absolute;
+  top: 40%;
+  transform: rotate(45deg);
+}
+.category-box .menu-close-btn::after {
+  transform: rotate(-45deg);
+}
+.category-box ul {
+  padding: 20px 0;
+}
+.category-box .no-line {
+  border: 0;
+  padding: 0;
+}
+.category-box .middle-line {
+  width: 360px;
+  border-top: 0.5px solid #bebebe;
+  margin: 0 auto;
+}
+.category-box .yes-line li a {
+  padding: 10px 25px;
+  display: inline-block;
+  font-size: 15px;
+  color: #222;
+}
+.category-box .yes-line-2 li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+.category-box .yes-line-2 li a {
+  display: inline-block;
+  font-size: 15px;
+  color: #222;
+}
+.category-box .menu-icon {
+  width: 16px;
+  height: 16px;
+  margin: 0 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+}
+.category-box .notice-icon {
+  background-image: url(https://media.tiffany.com/is/content/tiffanydm/Concierge?$tile$&);
+}
+.category-box .date-icon {
+  background-image: url(https://media.tiffany.com/is/content/tiffanydm/Appointment?$tile$&);
+}
+.category-box .my-icon {
+  background-image: url(https://media.tiffany.com/is/content/tiffanydm/MyAccount?$tile$&);
+}
+.category-box .location-icon {
+  background-image: url(https://media.tiffany.com/is/content/tiffanydm/StoreLocator?$tile$&);
+}
+
+/* sub-menu */
+.category-box .yes-line li.hover .sub-menu {
+  display: block;
+}
+.category-box .sub-menu {
+  padding-left: 20px;
+  display: none;
+}
+.category-box .sub-menu ul {
+  padding: 5px 0;
+}
+.category-box .sub-menu li a {
+  font-weight: 300;
+  font-size: 14px;
+  color: #333;
+}
+
+/* 비디오 배경 */
+.video_area {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 auto;
+  z-index: -1;
+}
+.video_area > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+.top-bar {
+  padding: 25px 0;
+  position: relative;
+}
+.top-bar,
+.icon-1,
+.icon-2 {
+  display: flex;
+  align-items: center;
+}
+.icon-1,
+.icon-2 {
+  flex-grow: 1;
+}
+.icon-1 {
+  justify-content: start;
+}
+.icon-2 {
+  justify-content: end;
+}
+.top-bar .top-icon {
+  margin-left: 40px;
+  cursor: pointer;
+}
+/* icon-left */
+.top-bar > .icon-1 > .search-input {
+  width: 150px;
+}
+.top-bar > .icon-1 > .search-input input {
+  border-bottom: 1px solid #000;
+  padding: 10px 0;
+  padding-left: 1px;
+  font-size: 13px;
+  width: 180px;
+}
+.top-bar > .icon-1 > .search-input input::placeholder {
+  color: #b9b9b9;
+}
+.top-bar > .icon-1 > .search-icon {
+  display: none;
+}
+
+/* logo */
+.top-bar > .logo-box > a > .logo-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 50px;
+  overflow: hidden;
+}
+.top-bar > .logo-box > a > .logo-img > img {
+  height: 100%;
+  width: 100%;
+}
+
+/* 메뉴 박스 */
+.menu-box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 400;
+  font-size: 15px;
+}
+.menu-box > ul > li {
+  width: 200px;
+  padding: 15px 20px 15px;
+}
+
+/* 검색 박스 */
+.search-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+.search-box.active {
+  opacity: 1;
+  visibility: visible;
+}
+.search-box form {
+  width: 100%;
+  height: 92px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.search-box input {
+  width: 100%;
+  height: 100%;
+  padding: 15px 25px;
+  font-size: 15px;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+.search-box .search-close-btn {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.search-box .search-close-btn::before,
+.search-box .search-close-btn::after {
+  content: "";
+  background-color: #212121;
+  width: 80%;
+  height: 3%;
+  position: absolute;
+  top: 40%;
+  transform: rotate(45deg);
+}
+.search-box .search-close-btn::after {
+  transform: rotate(-45deg);
+}
+
+/* banner */
+.section-2,
+.section-3,
+.section-4 {
+  position: relative;
+}
+.banner-img {
+  height: 100vh;
+  overflow: hidden;
+}
+.banner-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.banner-img > .bn-768 {
+  display: none;
+}
+.txt-box,
+.txt-box-3 {
+  position: absolute;
+  top: 30%;
+  right: 15%;
+  text-align: center;
+}
+.txt-box-2 {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  text-align: center;
+}
+.txt-box > .txt-title,
+.txt-box-2 > .txt-title,
+.txt-box-3 > .txt-title {
+  font-size: 100px;
+  line-height: 0.9;
+  text-shadow: 0px 1px 1px #999;
+}
+.txt-box > .txt-info,
+.txt-box-2 > .txt-info,
+.txt-box-3 > .txt-info {
+  font-size: 16px;
+  line-height: 2;
+  margin-top: 15px;
+  font-weight: 300;
+}
+.txt-box-2 > .txt-info {
+  margin-top: 30px;
+}
+.txt-box > .txt-btn,
+.txt-box-2 > .txt-btn,
+.txt-box-3 > .txt-btn {
+  margin-top: 30px;
+}
+.txt-box > .txt-btn > button,
+.txt-box-2 > .txt-btn > button,
+.txt-box-3 > .txt-btn > button {
+  border: 0.3px solid #d7d7d7;
+  font-size: 15px;
+  width: 250px;
+  height: 55px;
+}
+.txt-box-768 {
+  position: absolute;
+  bottom: 5%;
+  border: 1px solid #fff;
+  padding: 25px;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.txt-box-768-2 {
+  position: absolute;
+  top: 5%;
+  border: 1px solid #333;
+  padding: 25px;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.txt-box-768,
+.txt-box-768-2 {
+  display: none;
+}
+.txt-box-768 > .txt-title {
+  font-size: 60px;
+  color: #fff;
+  text-shadow: 0px 1px 1px #999;
+}
+.txt-box-768-2 > .txt-title {
+  font-size: 58px;
+  color: #333;
+  text-shadow: 0px 1px 1px #999;
+}
+
+/* 배너 화살표 */
+.bn-arrow {
+  width: 80px;
+  height: 10px;
+  position: relative;
+}
+.bn-arrow > .arrow-1 {
+  width: 80px;
+  height: 1.5px;
+  background-color: #fff;
+  position: absolute;
+  top: auto;
+  bottom: 0%;
+  left: 0%;
+  right: 10%;
+}
+.bn-arrow > .arrow-2 {
+  width: 20px;
+  height: 1.5px;
+  background-color: #fff;
+  position: absolute;
+  top: 25%;
+  left: 76%;
+  bottom: auto;
+  right: 0%;
+  transform: rotate(35deg);
+}
+.bn-arrow > .bk {
+  background-color: #333;
+}
+
+/* 상품 리스트 */
+.product-list {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.product-list > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.product-list > ul > li {
+  width: calc((100% / 4) - 20px);
+}
+.product-list .change-img {
+  position: relative;
+}
+.product-list .hover-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  display: flex;
+  justify-content: center;
+}
+.product-list .change-img:hover .hover-img {
+  opacity: 1;
+}
+.product-list .price-tag {
+  position: absolute;
+  width: 90%;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  bottom: 20px;
+  align-items: center;
+}
+.product-list .price-tag > .price {
+  font-weight: 500;
+  padding-left: 15px;
+}
+.product-list .price-tag > .heart-icon {
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  right: 10%;
+}
+
+/* 웨딩반지 리스트 */
+.weddingring-list {
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.weddingring-list > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.weddingring-list > ul {
+  width: 73%;
+  margin: 0 auto;
+}
+.weddingring-list > ul > li {
+  width: calc((100% / 3) - 20px);
+  min-width: 220px;
+  margin-right: 10px;
+  scale: 0.9;
+  position: relative;
+}
+.weddingring-list .swiper {
+  padding-bottom: 50px;
+  display: none;
+}
+.weddingring-list .swiper-slide {
+  width: calc((100% / 3) - 20px);
+  position: relative;
+}
+.weddingring-list .swiper-slide > a > img {
+  width: 100%;
+}
+.weddingring-list .swiper-slide .ring-title {
+  text-align: center;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  color: #222;
+  transform: translateX(-50%);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.weddingring-list > ul > li .ring-title {
+  text-align: center;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  color: #222;
+  transform: translateX(-50%);
+  font-size: 14px;
+  white-space: nowrap;
+  display: none;
+}
+.weddingring-list > ul > li:hover .ring-title {
+  display: block;
+}
+.weddingring-list > ul > li:hover {
+  border: 2px solid #81d8d0;
+  box-sizing: border-box;
+}
+
+/* 카테고리 리스트 */
+.category-list {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.category-list > ul {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.category-list > ul > li {
+  display: flex;
+}
+.category-list > ul > li > div {
+  margin-right: 10px;
+}
+.category-list > ul > li .img-box {
+  max-width: 180px;
+  min-width: 100px;
+}
+.category-list > ul > li .img-box img {
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid #e2e2e2;
+}
+.category-list > ul > li .head-title {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: normal;
+  color: #a9a9a9;
+}
+
+/* 카테고리 - visible-400 */
+.category-list .visible-400 {
+  display: none;
+}
+
+.category-list > ul > li .head-title {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: normal;
+  color: #a9a9a9;
+}
+
+.category-list > ul > li .category-title {
+  margin-top: 10px;
+  text-align: center;
+  color: #222;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.category-list > ul > li .category-title {
+  margin-top: 10px;
+  text-align: center;
+  color: #222;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.category-list .img-box {
+  max-width: 200px;
+  max-height: 250px;
+}
+.product-list > ul > li > a img,
+.weddingring-list > ul > li > a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.category-list > ul > li > a img {
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid #e2e2e2;
+}
+
+.footer {
+  width: 100%;
+  padding: 10px 0;
+}
+.footer > .footer-center {
+  width: 80%;
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.footer > .footer-center > .left {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 300;
+}
+.footer > .footer-center > .left .title {
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+}
+.footer > .footer-center > .left > ul > li {
+  padding: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+.footer > .footer-center > .right {
+  width: 280px;
+}
+.footer > .footer-center > .right .title {
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+}
+.footer > .footer-center > .right .info {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 10px;
+  color: #666;
+}
+.footer > .footer-center > .right .info > p {
+  padding-bottom: 7px;
+}
+.footer > .footer-center > .right > .input-box {
+  margin-top: 60px;
+  position: relative;
+}
+.footer > .footer-center > .right input {
+  border-bottom: 1px solid #666;
+  padding: 10px 0;
+  padding-left: 1px;
+  width: 100%;
+  font-size: 13px;
+}
+.footer > .footer-center > .right input::placeholder {
+  color: #999;
+}
+.footer > .footer-center > .right button {
+  padding: 3px 20px;
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  border: 1px solid #666;
+  font-size: 12px;
+  color: #666;
+}
+.footer > .footer-bottom {
+  font-size: 14px;
+  font-weight: 200;
+  color: #666;
+  text-align: center;
+  padding: 15px 0;
+}
+
+/* 반응형 풋터 */
+.footer-1024 {
+  padding: 80px 0;
+  display: none;
+}
+.footer-1024 .footer-1024-top {
+  width: 40%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+.footer-1024 .footer-1024-top > ul {
+  display: flex;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  white-space: nowrap;
+  justify-content: space-between;
+}
+.footer-1024 .footer-1024-top > ul > li {
+  display: flex;
+  padding: 0 5px;
+}
+.footer-1024 .footer-1024-bottom {
+  width: 80%;
+  margin: 0 auto;
+  color: #777;
+}
+.footer-1024 .footer-1024-bottom p {
+  font-size: 13px;
+  text-align: center;
+  padding: 30px 0;
+  font-weight: 300;
+}
+.footer-1024 .footer-1024-bottom > ul {
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+}
+.footer-1024 .footer-1024-bottom > ul > li {
+  display: flex;
+}
+.footer-1024 .footer-1024-bottom > ul > li > div {
+  padding: 0 25px;
+}
+.footer-1024 .footer-1024-bottom a {
+  color: #777;
+}
+
+/* swiper */
+.swiper-box {
+  width: 100%;
+}
+.swiper-box > .swiper {
+  width: 98%;
+  display: flex;
+  justify-content: center;
+}
+.swiper-box > .swiper .swiper-slide {
+  width: 295px;
+  height: 295px;
+  overflow: hidden;
+}
+.swiper-box > .swiper .swiper-slide a > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+:root {
+  --swiper-navigation-color: #81d8d0 !important;
+  --swiper-theme-color: #81d8d0 !important;
+}
+/* swiper css */
+.product-swiper .swiper-wrapper,
+.product-swiper-2 .swiper-wrapper {
+  height: 100vh;
+}
+.product-swiper .swiper-scrollbar,
+.product-swiper-2 .swiper-scrollbar,
+.weddingring-list .swiper-scrollbar {
+  background: var(--swiper-scrollbar-bg-color, rgba(0, 0, 0, 0.1));
+}
+.product-swiper .swiper-scrollbar-drag,
+.product-swiper-2 .swiper-scrollbar-drag,
+.weddingring-list .swiper-scrollbar-drag {
+  background: var(--swiper-scrollbar-drag-bg-color, rgba(0, 0, 0, 0.2));
+}
+
+/*반응형 코드*/
+@media screen and (max-width: 1024px) {
+  .top-bar > .icon-1 > .search-icon {
+    display: block;
+    cursor: pointer;
+  }
+  .top-bar > .icon-1 > .search-input {
+    display: none;
+  }
+  .video_area {
+    width: 100%;
+  }
+  .txt-box {
+    right: 10%;
+  }
+  .txt-box-2 {
+    left: 8%;
+  }
+  .txt-box-3 {
+    right: 8%;
+  }
+  .txt-box-2 > .txt-title {
+    font-size: 90px;
+  }
+  .weddingring-list > ul > li .ring-title {
+    display: block;
+  }
+  .weddingring-list > ul > li:hover {
+    border: 0;
+  }
+  .product-list > ul > li:last-child,
+  .product-list > ul > li:nth-last-child(2) {
+    display: none;
+  }
+  .product-list > ul > li {
+    width: calc((100% / 3) - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  .category-list > ul > li .head-title {
+    display: none;
+  }
+  .footer > .footer-center {
+    display: none;
+  }
+  .footer-1024 {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  aside {
+    display: none;
+  }
+  .icon-2 > .d-icon {
+    display: none;
+  }
+  .banner-img > .bn {
+    display: none;
+  }
+  .banner-img > .bn-768 {
+    display: block;
+  }
+  .txt-box,
+  .txt-box-2,
+  .txt-box-3 {
+    display: none;
+  }
+  .product-list > ul > li {
+    width: calc((100% / 2) - 20px);
+  }
+  .product-list > ul > li:last-child,
+  .product-list > ul > li:nth-last-child(2),
+  .product-list > ul > li:nth-last-child(3),
+  .product-list > ul > li:nth-last-child(4) {
+    display: none;
+  }
+  .product-list .hover-img > img {
+    opacity: 0;
+  }
+  .product-list .hover-img {
+    opacity: 1;
+  }
+  .product-list .price {
+    font-size: 15px;
+  }
+  .weddingring-list > ul {
+    display: none;
+  }
+  .weddingring-list .swiper {
+    display: block;
+  }
+  .txt-box-768,
+  .txt-box-768-2 {
+    display: flex;
+  }
+  .category-list > ul > li .category-title {
+    margin-top: 0;
+    font-size: 13px;
+  }
+  .category-list .delete-1,
+  .category-list .delete-2 {
+    display: none;
+  }
+  .category-list .visible-400 {
+    display: flex;
+  }
+  .footer-1024 .footer-1024-bottom > ul {
+    flex-wrap: wrap;
+  }
+  .footer-1024 .footer-1024-bottom > ul > li {
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .icon-2 > .basket-icon {
+    display: none;
+  }
+  .txt-box-768 > .txt-title {
+    font-size: 45px;
+  }
+  .txt-box-768-2 > .txt-title {
+    font-size: 40px;
+  }
+}
